@@ -1,0 +1,4 @@
+Dentro de la carpeta PhotoShare abrir con terminal de comandos:
+npm run dev ->> usa nodemon para refrescar el NodeJs en cada cambio o bien puedes iniciar index.js 
+
+npm install ->> instala todas las dependencias del package.json
