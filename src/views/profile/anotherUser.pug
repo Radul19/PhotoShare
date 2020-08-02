@@ -1,0 +1,30 @@
+extends ../templates/header1
+block main
+    section.profile-container
+        div.profile-img_container
+            img.profile-img(src=`${Owner.picture}`, alt="")
+        div.profile-data
+            div.locked
+                if Owner.hidden
+                    p.lock-user-icon &#x1f512;
+                p.profile-username #{Owner.username}
+            p.profile-description &#10002; #{Owner.description}
+            p.profile-followers &#x1F441; #{Owner.totalFollowers(Owner.followers)-1} followers
+            p.profile-followers &#x1F441; #{Owner.totalFollowers(Owner.following)-1} following
+        form.profile-buttons(action=`/user/find/${Owner._id}/follow` method="POST")
+            if extranger === false
+                button.profile-description(type="submit") Unfollow
+            else
+                button.profile-description(type="submit") Follow
+    if Owner.hidden === true && extranger === true
+        p You cant acces to this profile
+
+    else 
+        section.profile-publications-grid
+            each Publication in Publications
+                if Publication.hidden === false
+                    div.profile-publications-division
+                        a(href=`/images/${Publication.filename}`) 
+                            img.profile-publications(src=`/uploads/${Publication.fileExtension}`)
+
+

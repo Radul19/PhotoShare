@@ -1,0 +1,158 @@
+/* CSS STYLES EFFECT//////////////*/
+
+.shiny-B {
+    position: relative;
+    overflow: hidden;
+    background-color: #9e9ea0;
+    color: #1b1c25;
+}
+
+.shiny-B:hover {
+    color: #ffffff;
+    background-color: #206a5d;
+}
+
+.shiny-B::after {
+    content: 'aaslkdjaldjasldaad';
+    color: #ffffff;
+    position: absolute;
+    top: 55%;
+    left: 80%;
+    transform: rotate(40deg);
+    width: 300px;
+    height: 25px;
+    background-color: #ffffff;
+    transition-property: left;
+    transition-duration: .7s;
+    transition-delay: 0s;
+}
+
+.shiny-B:hover::after {
+    left: -150%;
+}
+
+/*///////////////////////*/
+
+.profile-B {
+    box-sizing: border-box;
+    background-color: #f1f0f0;
+    border: 1px solid #1b1c25;
+    color: #1b1c25;
+    outline: solid #f1f0f0;
+    outline-width: 3px;
+}
+
+.profile-B:hover {
+    background-color: #1b1c25;
+    color: #f1f0f0;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+    transition-delay: 0s;
+}
+
+/*/////////////////////////////*/
+
+.edit-img-div {
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.edit-img-divHvr:hover.edit-img-divHvr::before {
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.315);
+    content: 'Upload Image';
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 130px;
+    font-size: 1.1em;
+}
+
+.edit-loadImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* .hide-checkbox{
+} */
+
+.up-img-div {
+    width: 220px;
+    height: 220px;
+    margin: auto;
+    color: #f1f0f0;
+}
+
+.up-img-divHvr:hover.up-img-divHvr::before {
+    position: absolute;
+    display: block;
+    background-color: #2729357a;
+    content: 'Upload Image';
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    line-height: 220px;
+    font-size: 1.1em;
+}
+
+.up-loadImage {
+    width: 100%;
+    height: 100%;
+}
+
+/*////////////MESSAGES/////////////////////*/
+
+.succes_msg {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    color: #ebecf1;
+    padding: 1em;
+    background-color: #206a5d;
+    border: 5px solid #184b42;
+    left: 30%;
+    width: 40%;
+    margin: 0px auto;
+}
+
+#flash-X{
+    position: relative;
+    cursor: pointer;
+    /* margin-left: 8em; */
+    right: 1px;
+}
+
+.error_msg {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    color: #ebecf1;
+    padding: 1em;
+    background-color: #db3636;
+    border: 5px solid #960d0d;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    margin: 0px auto;
+}
+
+/* #flash-X*/
+
+.dsp-none {
+    display: none;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+from {opacity: 1}
+to {opacity: 0}
+}

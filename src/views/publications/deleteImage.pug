@@ -1,0 +1,11 @@
+extends ../templates/header
+
+block main
+    div.publication-delete-container
+        section.publication-delete-section
+            div.publication-delete-division
+                img.publication-delete_img(src=`/uploads/${Image.fileExtension}` alt="")
+                p.publication-delete_img-description #{Image.description}
+            div.publication-delete-button-division
+                a.publication-delete_button-save(href=`/images/${Image.filename}`) Go back
+                a.publication-delete_button-delete(href=`/images/deleted/${Image.filename}`) Delete

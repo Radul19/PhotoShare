@@ -1,0 +1,14 @@
+extends ../templates/header
+
+block main
+    form.edit-image-form(action=`${Image.filename}` method="POST")
+        p.edit-image-form_p Editar imagen
+            div.edit-image-form-division
+                img.edit-image-form-division_image(src=`/uploads/${Image.fileExtension}`, alt="")
+                label.edit-image-form-division_label(for="description") New Description
+                textarea#TextArea.edit-image-form-division_newDescription(placeholder=`${Image.description}` name="description" rows="2")
+                div.upload-image-form-division_hide
+                    label.upload-image-form-division_hide-label.hide-label(for="hide") Private Image
+                    input.upload-image-form-division_hide-checkbox.hide-checkbox(type="checkbox", name="hide")
+                button.edit-image-form-division_button.shiny-B(type="submit") Editar Imagen
+    script(src="/scripts/textArea_script.js")

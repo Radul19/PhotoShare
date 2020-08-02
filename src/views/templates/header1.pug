@@ -1,0 +1,26 @@
+<!-- FOR USER PROFILE-->
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet" href="/reset.css")
+        link(rel="stylesheet" href="/style.css",)
+        link(rel="stylesheet", href="/effects.css")
+    body.background1-1
+        header.template-header
+            img.template-logo(src="/img/logo.png" href="/" alt="PhotoShare")
+            if user
+                form.template-search-form(action="/search/searchUser" method="GET" )
+                    input.template-search-bar(type="text" placeholder="Buscar usuario" name="userToSearch")
+            nav.template-nav
+                if user
+                    a(href="/user/landingPage") LandingPage
+                    a(href="/user/profile") Profile
+                    a(href="/logout") LogOut
+                else
+                    a(href="/") Home
+                    a(href="/login") Login
+                    a(href="/register") Register
+        block main

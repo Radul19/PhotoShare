@@ -1,0 +1,23 @@
+extends ../templates/header
+
+block main
+    if error_msg != ''
+        div#flash-msg.error_msg
+            p=error_msg
+            span#flash-X &#10006;
+    form.edit-user-form(action="edit" method="POST" enctype="multipart/form-data")
+        p.edit-user-form-title Editar
+            div.edit-user-form_inputs
+                label(for="upImage")
+                input#uploadImage(type="file" placeholder="upload" name="image")
+                div#divImage.edit-img-div.edit-img-divHvr(style=`background-image: url(${user.picture})`)
+                label.edit-user-form_labels(for="username") Username
+                input.edit-user-form_input-text(type="text" placeholder=`${user.username}` name="username")
+                label.edit-user-form_labels(for="description") Description
+                textarea#TextArea.edit-user-form_textarea(placeholder=`${user.description}` name="description" cols="30" rows="4") 
+                div
+                    input(type="checkbox" name="hide")
+                    label.upload-image-form-division_hide-label(for="hide") Pivate Profile  
+                button.edit-user-form_button.shiny-B(type="submit") Editar Datos
+
+    script(src="/scripts/edit-user_script.js")

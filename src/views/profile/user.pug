@@ -1,0 +1,34 @@
+extends ../templates/header1
+block main
+    if succes_msg != ''
+        div#flash-msg.succes_msg
+            p=succes_msg
+            span#flash-X &#10006;
+    section.profile-container
+        div.profile-img_container
+            img#profile-img.profile-img(src=`${user.picture}`, alt="")
+        div.profile-data
+            div.locked
+                if user.hidden
+                    p.lock-user-icon &#x1f512;
+                p.profile-username #{user.username}
+            p.profile-description &#10002; #{user.description}
+            p.profile-followers &#x1F441; #{user.totalFollowers(user.followers)-1} followers
+            p.profile-followers &#x1F441; #{user.totalFollowers(user.following)-1} following
+        div.profile-buttons
+            a#editData.profile-description.profile-B(href="/user/edit") edit data
+            a.profile-description.profile-B(href="/user/createImage") upload image
+            a.profile-description.profile-B(href=`/user/${user._id}/notifications`)
+                | Notifications 
+                if bell
+                    span.bell &#128718;
+    section.profile-publications-grid
+        each image in userImages
+            div.profile-publications-division
+                a(href=`/images/${image.filename}`)
+                    img.profile-publications(src=`/uploads/${image.fileExtension}`)
+                    if image.hidden
+                        p.lock-icon &#x1f512;
+    script(src="/scripts/user_script.js")
+
+

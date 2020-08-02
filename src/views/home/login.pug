@@ -1,0 +1,16 @@
+extends ../templates/header3.pug
+
+block main
+    if succes_msg != ''
+        div#flash-msg.succes_msg
+            p=succes_msg
+            span#flash-X &#10006;
+    form.login-form(action="login" method="POST")
+        p.login-form_title Ingresar
+            div.login-form-inputs-division
+                label.login-form_labels(for="email") Correo Electronico
+                input.login-form_input-text(type="email" placeholder="" name="email")
+                label.login-form_labels(for="password") Contraseña
+                input.login-form_input-text(type="password" placeholder="" name="password")
+                button.login-form_button.shiny-B(type="submit") Iniciar sesión
+    script(src="/scripts/flash-msg.js")

@@ -1,0 +1,9 @@
+extends ../templates/header
+block main
+    each Image in allImages
+        section.landingPage-container
+            div.landingPage-img
+                p.landingPage-img_username #{Image.owner} :
+                a(href=`/images/${Image.filename}`)
+                    img.landingPage-img_image(src=`/uploads/${Image.fileExtension}`, alt="")
+                p.landingPage-img_description #{Image.description}

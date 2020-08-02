@@ -1,0 +1,36 @@
+extends ../templates/header
+
+block main
+    div.publication-container
+        section.publication-section
+            div.publication-section_img-container
+                p.publication-section_img-username #{Image.owner}
+                img.publication-section_img(src=`/uploads/${Image.fileExtension}` alt="")
+                p.publication-section_img-description #{Image.description}
+                if Image.hidden
+                    p.publication-lock-icon &#x1f512;
+            div.publication-section_reactions
+                form(action=`/image/${Image.filename}/like` method="POST")
+                    button(type="submit") &#10084 #{Image.totalLikes(Image.likes)-1}
+                button#commentButton(href="#") &#10002;
+                //- button(href="#") &#9735;
+            section.publication-section-comment
+                each Comment of Comments
+                    div.publication-section-comment_users
+                        img.publication-section-comment_users-picture(src=`${Comment.user_pic}`, alt="")
+                        a.publication-section-comment_users-username(href=`/user/find/${Comment.user_id}`) #{Comment.username}:
+                        p.publication-section-comment_users-text #{Comment.comment}
+                form.publication-section_newComment(action=`/image/${Image.filename}/comment` method="POST")
+                    img.publication-section_newComment-userPic(src=`${user.picture}`, alt="")
+                    input#commentBar.publication-section_newComment-bar(type="text" name="comment" placeholder="Leave a comment" )
+            
+        section.publication-user-section
+            div.publication-user-section-user
+                img.publication-user-section-user_pic(src=`${user.picture}` alt="")
+                h1.publication-user-section-user_name #{user.username}
+                p.publication-user-section-user_description #{user.description}
+            if Image.owner === user.username
+                div.publication-user-section-button
+                    a.publication-user-section-button_edit(href=`/images/edit/${Image.filename}`) Edit Image
+                    a.publication-user-section-button_delete(href=`/images/delete/${Image.filename}`) Delete Image
+    script(src="/scripts/img_script.js")

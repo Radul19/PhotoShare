@@ -1,0 +1,18 @@
+extends ../templates/header
+
+block main
+    form.upload-image-form(action="createImage" method="POST" enctype="multipart/form-data")
+        p.upload-image-form_p Subir imagen
+            div.upload-image-form-division
+                label.edit-image-form-division_label(for="image") Seleccionar imagen    
+                input#uploadImage.upload-image-form_button(type="file" placeholder="Upload" name="image" )
+                div#divImage.up-img-div.up-img-divHvr
+                label.upload-image-form-division_label(for="description") Description
+                textarea#TextArea.upload-image-form-division_newDescription(placeholder="Description" name="description" rows="4") 
+                div.upload-image-form-division_hide
+                    label.upload-image-form-division_hide-label.hide-label(for="hide") Private Image
+                    input.upload-image-form-division_hide-checkbox.hide-checkbox(type="checkbox", name="hide")
+                button.upload-image-form-division_button.shiny-B(type="submit") Subir Imagen
+
+    script(src="/scripts/textArea_script.js")
+    script(src="/scripts/upload-img_script.js")

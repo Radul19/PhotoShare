@@ -1,0 +1,12 @@
+extends ../templates/header2
+block main
+    section.notify-section
+        if notifications
+            each notify in notifications
+                div.notify-user
+                    a.notify-user-box(href=`${notify.link}`) 
+                        img.notify-user_pic(src=`${notify.throwerPic}`, alt="")
+                        p.notify-user_thrower #{notify.thrower}
+                    p.notify-user_description #{notify.message}
+        else
+            p You dont have notifications yet

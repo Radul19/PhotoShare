@@ -1,0 +1,12 @@
+extends ../templates/header2
+block main
+    section.search-section
+        if Profiles
+            each Profile in Profiles
+                div.search-user
+                    a.search-user-box(href=`/user/find/${Profile._id}`) 
+                        img.search-user_pic(src=`${Profile.picture}`, alt="")
+                        p.search-user_username #{Profile.username}:
+                    p.search-user_description #{Profile.description}
+        else
+            p User not found
